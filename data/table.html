@@ -2,22 +2,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-	<title>jQuery : jsonTable</title>
-	<style type="text/css">
-	#dataTable.classy {
-		color: red;
-		}
-	</style>
+	<title>Movies</title>
 </head>
-<body onload="load()">
-	<table id="dataTable" style="color: red;">
+<body>
+	<table class="table-autostripe table-rowshade-alternate" border="1" id="movTable" >
+		<tr>
+			<th>Title</th>
+			<th class="table-sortable:numeric table-sortable" title="Click to sort">Year</th>
+			<th>Rating</th>
+			<th>Length</th>
+			<th>Genre</th>
+		</tr>
+		<tr>
+			<td>uwotm8</td>
+			<td>2013</td>
+			<td>shiet</td>
+			<td>fook</td>
+			<td>mum</td>
+		</tr>
+		<tr>
+			<td>fiteme</td>
+			<td>1999</td>
+			<td>christ</td>
+			<td>dafuq</td>
+			<td>who u</td>
+		</tr>
 	</table>
-	<br/>
-	<div id="container"></div>
+	<script type="text/javascript" src="jstoolbox.js"></script>
 	<script type="text/javascript" src="testtable.js"></script>
 	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="jsonTable.js"></script>
-	<script type="text/javascript" src="table.js"></script>
+	<!--script type="text/javascript" src="table.js"></script-->
 </body>
 </html>

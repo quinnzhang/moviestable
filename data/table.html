@@ -5,32 +5,41 @@
 	<title>Movies</title>
 </head>
 <body>
-	<table border="1" id="movTable" >
-		<tr>
-			<th>Title</th>
-			<th class="table-sortable:numeric table-sortable" title="Click to sort">Year</th>
-			<th>Rating</th>
-			<th>Length</th>
-			<th>Genre</th>
-		</tr>
-		<tr>
-			<td>uwotm8</td>
-			<td>2013</td>
-			<td>shiet</td>
-			<td>fook</td>
-			<td>mum</td>
-		</tr>
-		<tr>
-			<td>fiteme</td>
-			<td>1999</td>
-			<td>christ</td>
-			<td>dafuq</td>
-			<td>who u</td>
-		</tr>
+	<table class="table-autosort" border="1">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th class="table-sortable:numeric table-sortable" title="Click to sort">Year</th>
+				<th class="table-sortable:numeric table-sortable" title="Click to sort">Rating</th>
+				<th class="table-sortable:numeric table-sortable" title="Click to sort">Length</th>
+				<th>Genre</th>
+			</tr>
+			<tr>
+				<th>
+					<input onkeyup="Table.filter(this,this)" name="filter">
+				</th>
+				<th>
+					<input onkeyup="Table.filterNumeric(this,this)" size="8">
+				</th>
+				<th>
+					<input onkeyup="Table.filterNumeric(this,this)" size="8">
+				</th>
+				<th>
+					<input onkeyup="Table.filterNumeric(this,this)" size="8">
+				</th>
+				<th>
+					<input onkeyup="Table.filterGenre(this,this)" name="filter">
+				</th>
+
+			</tr>
+		</thead>
+		<tbody id="movTable">
+		</tbody>
 	</table>
-	<script type="text/javascript" src="jstoolbox.js"></script>
+
 	<script type="text/javascript" src="testtable.js"></script>
 	<script type="text/javascript" src="jquery.js"></script>
-	<!--script type="text/javascript" src="table.js"></script-->
+	<script type="text/javascript" src="table.js"></script>
+	<script type="text/javascript" src="displaymovies.js"></script>
 </body>
 </html>

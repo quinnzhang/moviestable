@@ -681,15 +681,13 @@ var Table = (function(){
 				if (filter.filter == ""){
 					filter.filter = "function(){return true;}";
 				} else {
-					filter.filter = "function(val){return parseFloat(val.replace(/\$/,''))" +filter.filter+";}";
+					filter.filter = "function(val){return parseFloat(val)" +filter.filter+";}";
 				}
 
 				if (typeof(filter.filter)=="string") {
 					// If filter string is like "function (x) { ... }" then turn it into a function
 					if (filter.filter.match(/^function\s*\(([^\)]*)\)\s*\{(.*)}\s*$/)) {
-						console.log(filter.filter);
 						filter.filter = Function(RegExp.$1,RegExp.$2);
-						console.log(filter.filter);
 					}
 				}
 				// If some non-table object was passed in rather than a 'col' value, resolve it 
@@ -722,7 +720,6 @@ var Table = (function(){
 	table.filterGenre = function(o,filters,args) {
 		var cell;
 		args = args || {};
-
 		var t = this.resolve(o,args);
 		var tdata = this.tabledata[t.id];
 
@@ -744,17 +741,31 @@ var Table = (function(){
 			// Convert regular expression strings to RegExp objects and function strings to function objects
 			for (var i=0,L=filters.length; i<L; i++) {
 				var filter = filters[i];
-				filter.filter = filter.filter.replace(/\s+/g, ",");
-				filter.filter = "/"+filter.filter+"/";
+
+				if (filter.filter == ""){
+					filter.filter = "function(){return true;}";
+				} else {
+					//filter.filter = "function(val){return (val.match(/"+filter.filter+"/i));}";
+				
+					var filter_array = filter.filter.split(' ');
+					var filter_array_length = filter_array.length;
+					var function_string = "function(val){return (val.match(/";
+					for (var i = 0; i < filter_array_length; i++){
+						if (i + 1 == filter_array_length){
+							function_string=function_string+filter_array[i] +"/i));}";
+						}
+						else{
+							function_string=function_string+filter_array[i] +"/i) && val.match(/";
+						}
+					}
+
+					filter.filter = function_string;
+				}
 
 				if (typeof(filter.filter)=="string") {
-					console.log(filter.filter);
-					if (filter.filter.match(/^\/(.*)\/$/)) {
-						
-						console.log(filter.filter);
-						filter.filter = new RegExp(RegExp.$1, 'i');
-						filter.filter.regex=true;
-	
+					// If filter string is like "function (x) { ... }" then turn it into a function
+					if (filter.filter.match(/^function\s*\(([^\)]*)\)\s*\{(.*)}\s*$/)) {
+						filter.filter = Function(RegExp.$1,RegExp.$2);
 					}
 				}
 				// If some non-table object was passed in rather than a 'col' value, resolve it 

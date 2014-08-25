@@ -8,27 +8,30 @@
 	<table class="table-autosort" border="1">
 		<thead>
 			<tr>
-				<th class="table-sortable:default table-sortable">Title</th>
-				<th class="table-sortable:numeric table-sortable" title="Click to sort">Year</th>
-				<th class="table-sortable:numeric table-sortable" title="Click to sort">Rating</th>
-				<th class="table-sortable:numeric table-sortable" title="Click to sort">Length</th>
+				<th id ="hTitle">Title</th>
+				<th id ="hYear">Year</th>
+				<th id ="hRating">Rating</th>
+				<th id ="hLength">Length</th>
 				<th>Genre</th>
 			</tr>
 			<tr>
 				<th>
-					<input onkeyup="Table.filter(this,this)" name="filter">
+					Search<input onkeyup="jsSearch()" type="text" id="sTitle">
 				</th>
 				<th>
-					<input onkeyup="Table.filterNumeric(this,this)" size="8">
+					Before<input onkeyup="jsSearch()" type="text" id="sBefore" size="8"><br>
+					After<input onkeyup="jsSearch()" type="text" id="sAfter" size="8">
 				</th>
 				<th>
-					<input onkeyup="Table.filterNumeric(this,this)" size="8">
+					Better than<input onkeyup="jsSearch()" type="text" id="sBetter" size="8"><br>
+					Worse than<input onkeyup="jsSearch()" type="text" id="sWorse" size="8">
 				</th>
 				<th>
-					<input onkeyup="Table.filterNumeric(this,this)" size="8">
+					Longer than<input onkeyup="jsSearch()" type="text" id="sLonger" size="8"><br>
+					Shorter than<input onkeyup="jsSearch()" type="text" id="sShorter" size="8">
 				</th>
 				<th>
-					<input onkeyup="Table.filterGenre(this,this)" name="filter">
+					Filter<input onkeyup="jsSearch()" type="text" id="sGenre">
 				</th>
 
 			</tr>
@@ -41,5 +44,8 @@
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="table.js"></script>
 	<script type="text/javascript" src="displaymovies.js"></script>
+	<script type="text/javascript" src="constructtable.js"></script>
+	<script type="text/javascript" src="jssearch.js"></script>
+
 </body>
 </html>

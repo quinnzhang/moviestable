@@ -1,18 +1,4 @@
 var mov = JSON.parse(movies);
-
-    /*var options = {
-        source: mov,
-        rowClass: "classy",
-    };
-
-    var moviesTable = $("<table></table>");
-    moviesTable.jsonTable({
-        head : ['N.', 'Title', 'Rating' ,'Year', 'Length', 'Genre', 'IMDB'],
-        json : ['*', 'title', 'rating', 'year', 'length', 'genre', 'url'] // The '*' identity will be incremented at each line
-    });
-    moviesTable.jsonTableUpdate(options);
-    $("#container").append(moviesTable);*/
-
 var table = document.getElementById('movTable');
 
 var addRow = function(i){
@@ -33,7 +19,6 @@ var addColumns = function(row, i){
     link.innerHTML = mov[i].title;
     title.appendChild(link);
 
-    //title.innerHTML = mov[i].title;
     year.innerHTML = mov[i].year;
     rating.innerHTML = mov[i].rating;
     length.innerHTML = mov[i].length;
@@ -46,6 +31,13 @@ var addColumns = function(row, i){
     row.appendChild(genre);
 };
 
-for (var i = 0; i < 100; i++){
-    addRow(i);
-}
+var constructTable = function(index){
+    var indices_len = index.length;
+
+    while (table.hasChildNodes()){
+        table.removeChild(table.lastChild);
+    }
+    for (var i = 0; i < indices_len; i++){
+        addRow(index[i]);
+    }
+};

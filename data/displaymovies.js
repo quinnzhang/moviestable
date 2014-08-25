@@ -31,13 +31,28 @@ var addColumns = function(row, i){
     row.appendChild(genre);
 };
 
-var constructTable = function(index){
+var constructTable = function(index, numrows){
     var indices_len = index.length;
+    var end_loop = Math.min(indices_len, numrows);
 
     while (table.hasChildNodes()){
         table.removeChild(table.lastChild);
     }
-    for (var i = 0; i < indices_len; i++){
+    for (var i = 0; i < end_loop; i++){
         addRow(index[i]);
     }
 };
+
+var incrementTable = function(index, numrows, increment){
+    var indices_len = index.length;
+    var start_index = numrows - increment;
+    var end_loop = Math.min(indices_len, numrows);
+    console.log(start_index+"/"+end_loop);
+    for (var i = start_index; i < end_loop; i++){
+        addRow(index[i]);
+    }
+};
+
+var jsontoString = function(f) {
+    return f.toString().replace(/^[^\/]+\/\*!?/, '').replace(/\*\/[^\/]+$/, '');
+}

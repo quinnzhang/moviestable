@@ -1,5 +1,7 @@
+var display_len = 100;
+var display_increment = 100;
 $(document).ready(function(){
-	constructTable(full_indices);
+	constructTable(indices, display_len);
 
 	var titleclick = false;
 	$("#hTitle").click(function(){
@@ -48,4 +50,14 @@ $(document).ready(function(){
 			jsSearch();
 		}
 	});
+
+	$(window).scroll(function(){
+		if ($(window).scrollTop() + $(window).height() == $(document).height()){
+			var indices_len = indices.length;
+			if (indices_len > display_len){
+				display_len = display_len + display_increment;
+				incrementTable(indices, display_len, display_increment);
+			}
+		}
+	})
 });

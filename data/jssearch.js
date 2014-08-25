@@ -1,10 +1,10 @@
 var table_len = mov.length;
-
 var full_indices = [];
 for (var i = 0; i < table_len; i++){
 	full_indices.push(i);
 }
 var col = 9999;
+var indices = full_indices;
 
 var strParentheses = function(n){
 	var str = ""
@@ -33,7 +33,7 @@ var jsSearch = function(){
 		for (var i = 0; i < filter_len; i++){
 			if (i+1 == filter_len){
 				function_str = function_str+filter_array[i]+
-								"(full_indices"+strParentheses(filter_len);
+								"(indices"+strParentheses(filter_len);
 			} else {
 				function_str = function_str+filter_array[i]+"(";
 			}
@@ -47,16 +47,19 @@ var jsSearch = function(){
 		if (col != 9999){
 			function_str = "mergeSort(" + function_str + ")";
 		}
+
 		output_indices = eval(function_str);
-		constructTable(output_indices);
-		return output_indices;
+		constructTable(output_indices, display_increment);
 	} else { // if str is null, then construct entire table
 		if (col != 9999){
 			output_indices = mergeSort(full_indices);
 		}
-		constructTable(output_indices);
+		constructTable(output_indices, display_increment);
 	}
 
+	// set global indices array to indices array after filter/sort
+	indices = output_indices;
+	display_len = 100;
 	return 0;
 };
 

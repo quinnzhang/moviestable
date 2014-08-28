@@ -1,9 +1,88 @@
+
+<!DOCTYPE html>
 <html>
 <head>
-    <title>u wot m8</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<link rel="stylesheet" type="text/css" href="css/table.css">
+	<title>Moviestable</title>
 </head>
 <body>
-  <h1>1v1 me irl m8</h1>
-  <a href="data/table.html"> click this, mofo </a>
+	<!--div id="description" class="center" title="Click to toggle"><u>Description</u></div-->
+	<table>
+		<thead>
+			<tr>
+				<th class="tHeaders" id="hTitle" style="width:350px">
+					<div class="sort" id="titleA">Asc</div><br>
+					<div class="sort" id="titleD">Des</div>
+					<div class="headerText">Title</div>
+				</th>
+				<th class="tHeaders" id="hYear" style="width:90px">
+					<div class="sort" id="yearA">Asc</div><br>
+					<div class="sort" id="yearD">Des</div>
+					<div class="headerText">Year</div>
+				</th>
+				<th class="tHeaders" id="hRating" style="width:125px">
+					<div class="sort" id="ratingA">Asc</div><br>
+					<div class="sort" id="ratingD">Des</div>
+					<div class="headerText">Rating</div>
+				</th>
+				<th class="tHeaders" id="hVotes" style="width:135px">
+					<div class="sort" id="votesA">Asc</div><br>
+					<div class="sort" id="votesD">Des</div>
+					<div class="headerText">Votes</div>
+				</th>
+				<th class="tHeaders" id="hLength" style="width:132px">
+					<div class="sort" id="lengthA">Asc</div><br>
+					<div class="sort" id="lengthD">Des</div>
+					<div class="headerText">Length</div>
+				</th>
+				<th style="width:350px">
+					<div id="filterNA">Filter pre-release</div><br>
+					<div class="headerText">Genre</div>
+				</th>
+			</tr>
+			<tr>
+				<th>
+					<input onkeyup="jsSearchDelay()" type="text" id="sTitle" placeholder="Search">
+				</th>
+				<th>
+					<div class="headerFxn">Before</div>
+					<input onkeyup="jsSearchDelay()" style="float:right" type="text" id="sBefore" size="4"><br>
+					<div class="headerFxn">After</div>
+					<input onkeyup="jsSearchDelay()" style="float:right" type="text" id="sAfter" size="4">
+				</th>
+				<th>
+					<div class="headerFxn">Better than</div>
+					<input onkeyup="jsSearchDelay()" style="float:right" type="text" id="sBetter" size="4"><br>
+					<div class="headerFxn">Worse than</div>
+					<input onkeyup="jsSearchDelay()" style="float:right" type="text" id="sWorse" size="4">
+				</th>
+				<th>
+					<div class="headerFxn">More than</div>
+					<input onkeyup="jsSearchDelay()" style="float:right" type="text" id="sMore" size="7"><br>
+					<div class="headerFxn">Less than</div>
+					<input onkeyup="jsSearchDelay()" style="float:right" type="text" id="sLess" size="7">
+				</th>
+				<th>
+					<div class="headerFxn">Longer than</div>
+					<input onkeyup="jsSearchDelay()" style="float:right" type="text" id="sLonger" size="4"><br>
+					<div class="headerFxn">Shorter than</div>
+					<input onkeyup="jsSearchDelay()" style="float:right" type="text" id="sShorter" size="4">
+				</th>
+				<th>
+					<input onkeyup="jsSearchDelay()" type="text" id="sGenre"placeholder='Filter category'>
+				</th>
+
+			</tr>
+		</thead>
+		<tbody id="movTable">
+		</tbody>
+	</table>
+	<script type="text/javascript" src="javascript/imdbdata.js"></script>
+	<script type="text/javascript" src="javascript/jquery.js"></script>
+	<script type="text/javascript" src="javascript/displaymovies.js"></script>
+	<script type="text/javascript" src="javascript/constructtable.js"></script>
+	<script type="text/javascript" src="javascript/jssearch.js"></script>
 </body>
 </html>

@@ -1,0 +1,53 @@
+#description {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #0000FF;
+	cursor: pointer;
+}
+
+#desc_text {text-align: left;}
+
+.center {
+	text-align: center;
+}
+
+table {
+	border: 1px solid black;
+	border-radius: 10px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+th {
+	background: #E3EEFA;
+}
+
+tbody tr:nth-child(even) {
+	background: #E3EEFA;
+}
+
+.sort{
+	color: gray;
+	float: left;
+	font-size: 14px;
+}
+
+#filterNA{
+	color: red;
+	float: right;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.tHeaders{
+	cursor: pointer;
+}
+
+.headerFxn {
+	float: left;
+	font-size: 14px;
+}
+
+.headerText{
+	font-size: 18px;
+}
